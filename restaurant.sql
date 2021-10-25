@@ -1,3 +1,5 @@
+--SCHEMA
+
 CREATE TABLE Restaurants (
   restaurant_id INTEGER NOT NULL PRIMARY KEY, 
   restaurant_name TEXT, 
