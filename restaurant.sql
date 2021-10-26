@@ -65,12 +65,14 @@ JOIN MenuItems ON Menus.menu_id = MenuItems.menu_id
 WHERE Menus.menu_id = 3;
 
 -- Selecting all restaurants and grouping the number of menus they have.
-SELECT COUNT(menu_id), restaurant_id
-FROM Menus
-GROUP BY restaurant_id;
+SELECT Restaurants.restaurant_name AS "Restaurant Names", COUNT(menu_id) AS "Number of menus"
+FROM Restaurants
+JOIN Menus ON Restaurants.restaurant_id = Menus.restaurant_id
+GROUP BY restaurant_name;
 
 --Selecting the total price of a menu and sorting all menus into most expensive first.
-SELECT SUM(menu_item_price), menu_id
-FROM MenuItems
-GROUP BY menu_id
+SELECT Menus.menu_title AS "Menu Name", SUM(MenuItems.menu_item_price) AS "Total Cost"
+FROM Menus
+JOIN MenuItems ON Menus.menu_id = MenuItems.menu_id
+GROUP BY menu_title
 ORDER BY SUM(menu_item_price) DESC;
