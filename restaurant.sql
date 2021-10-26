@@ -75,4 +75,4 @@ SELECT Menus.menu_title AS "Menu Name", SUM(MenuItems.menu_item_price) AS "Total
 FROM Menus
 JOIN MenuItems ON Menus.menu_id = MenuItems.menu_id
 GROUP BY menu_title
-ORDER BY SUM(menu_item_price) DESC;
+ORDER BY "Total Cost" DESC;
